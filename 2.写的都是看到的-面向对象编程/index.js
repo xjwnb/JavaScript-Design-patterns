@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-20 18:00:12
- * @LastEditTime: 2020-09-20 20:05:34
+ * @LastEditTime: 2020-09-20 20:41:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\2.写的都是看到的-面向对象编程\index.js
@@ -132,3 +132,21 @@ var book = new Book(1, "JavaScript设计模式", 100);
 console.log(book.getName());
 console.log(book.getPrice());
 book.copy();
+
+// 安全类
+console.log("安全类");
+var Book = function (title, time, type) {
+  var title, time, type;
+  if (this instanceof Book) {
+    this.title = title;
+    this.time = time;
+    this.type = type;
+  } else {
+    return new Book(title, time, type);
+  }
+};
+var book = Book("JavaScript", "2014", "js");
+console.log(book);
+console.log(book.title);
+console.log(book.time);
+console.log(book.type);
