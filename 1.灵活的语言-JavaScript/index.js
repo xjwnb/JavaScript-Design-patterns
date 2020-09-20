@@ -32,3 +32,13 @@ var CheckObject = {
 };
 CheckObject.checkName();
 CheckObject.checkEmail();
+
+// 对象的另一种形式
+console.log('对象的另一种形式')
+var CheckObject = function() {};
+CheckObject.checkName = function() {
+  console.log('checkName');
+}
+CheckObject.checkEmail = function() {
+  console.log('checkEmail')
+}
