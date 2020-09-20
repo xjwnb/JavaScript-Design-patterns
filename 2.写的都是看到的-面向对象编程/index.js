@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-20 18:00:12
- * @LastEditTime: 2020-09-20 19:21:34
+ * @LastEditTime: 2020-09-20 19:41:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\2.写的都是看到的-面向对象编程\index.js
@@ -56,7 +56,20 @@ var Book = function (id, name, price) {
 // 类静态共有属性（对象不能访问）
 Book.isChinese = true;
 // 类静态共有方法（对象不能访问）
-Book.resetTime = function() {
-  console.log('new Time');
+Book.resetTime = function () {
+  console.log("new Time");
 };
 Book.resetTime();
+Book.prototype = {
+  // 共有属性
+  isJSBook: false,
+  // 共有方法
+  display: function () {
+    console.log("display");
+  },
+};
+var book = new Book(11, "JavaScript设计模式", 100);
+console.log(book.num); // undefined
+console.log(book.isJSBook);// false
+console.log(book.id);// 11
+console.log(book.isChinese);// undeined
