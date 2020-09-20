@@ -42,3 +42,32 @@ CheckObject.checkName = function() {
 CheckObject.checkEmail = function() {
   console.log('checkEmail')
 }
+CheckObject.checkName();
+CheckObject.checkEmail();
+
+// 真假对象
+console.log('真假对象');
+var CheckObject = function() {
+  return {
+    checkName: function() {
+      console.log('checkName');
+    },
+    checkEmail: function() {
+      console.log('checkEmail');
+    }
+  }
+}
+var a = CheckObject();
+a.checkName();
+a.checkEmail();
+
+// 类也可以
+console.log('类也可以');
+var CheckObject = function() {
+  this.checkName = function() {
+    console.log('checkName');
+  },
+  this.checkEmail = function() {
+    console.log('checkEmail');
+  }
+}
