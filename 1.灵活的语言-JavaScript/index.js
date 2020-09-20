@@ -71,3 +71,49 @@ var CheckObject = function() {
     console.log('checkEmail');
   }
 }
+var a = new CheckObject();
+a.checkName();
+a.checkEmail();
+
+// 一个检测类
+console.log('一个检测类');
+var CheckObject = function() {};
+CheckObject.prototype.checkName = function() {
+  console.log('checkName');
+};
+CheckObject.prototype.checkEmail = function() {
+  console.log('checkEmail');
+};
+var a = new CheckObject();
+a.checkName();
+a.checkEmail();
+
+// 方法还可以这样用
+console.log('方法还可以这样用');
+var CheckObject = {
+  checkName: function() {
+    console.log('checkName');
+    return this;
+  },
+  checkEmail: function() {
+    console.log('checkEmail');
+    return this;
+  }
+}
+CheckObject.checkName().checkEmail();
+var CheckObject = function() {};
+CheckObject.prototype = {
+  checkName: function(){
+    console.log('checkName');
+    return this;
+  },
+  checkEmail: function() {
+    console.log('checkEmail');
+    return this;
+  }
+}
+var o = new CheckObject();
+o.checkName().checkEmail();
+
+// 函数的祖先
+console.log('函数的祖先');
