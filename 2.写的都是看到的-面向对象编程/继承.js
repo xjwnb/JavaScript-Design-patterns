@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-20 20:43:20
- * @LastEditTime: 2020-09-21 11:34:35
+ * @LastEditTime: 2020-09-21 12:38:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\2.写的都是看到的-面向对象编程\继承.js
@@ -118,3 +118,30 @@ console.log(otherBook.name); // flash book
 console.log(otherBook.alikeBook); // [ 'css book', 'html book', 'xml book', 'as book' ]
 console.log(book.name); // js book
 console.log(book.alikeBook); // [ 'css book', 'html book', 'xml book', 'as book' ]
+
+// 寄生式继承
+console.log("寄生式继承");
+function initObject(o) {
+  function F() {}
+  F.prototype = o;
+  return new F();
+}
+var book = {
+  name: "js book",
+  alikeBook: ["css book", "html book"],
+};
+function createBook(obj) {
+  var o = new initObject(obj);
+  o.getName = function () {
+    console.log(this.name);
+  };
+  return o;
+}
+var cbook1 = createBook(book);
+cbook1.getName();
+cbook1.alikeBook.push("js book");
+console.log(cbook1.alikeBook);
+
+cbook2 = createBook(book);
+cbook2.getName();
+console.log(cbook2.alikeBook);
