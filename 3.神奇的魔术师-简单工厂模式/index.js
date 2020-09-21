@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-21 14:50:55
- * @LastEditTime: 2020-09-21 15:43:47
+ * @LastEditTime: 2020-09-21 15:57:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\3.神奇的魔术师-简单工厂模式\index.js
@@ -66,3 +66,20 @@ var footnall = SportsFactory("wordCup");
 console.log(footnall); // { intro: '足球在世界范围内很流行' }
 console.log(footnall.intro); // 足球在世界范围内很流行
 footnall.getMember(); // 每个队伍需要11名队员
+
+// 工厂模式
+console.log("工厂模式");
+function createBook(name, time, type) {
+  var o = new Object();
+  o.name = name;
+  o.time = time;
+  o.type = type;
+  o.getName = function () {
+    console.log(this.name);
+  };
+  return o;
+}
+var book1 = createBook("JavaScript设计模式", 2020, "js");
+var book2 = createBook("JavaScript高级程序设计", 2019, "js");
+book1.getName(); // JavaScript设计模式
+book2.getName(); // JavaScript高级程序设计
