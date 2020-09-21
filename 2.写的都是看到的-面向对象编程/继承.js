@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-20 20:43:20
- * @LastEditTime: 2020-09-20 23:48:35
+ * @LastEditTime: 2020-09-21 00:17:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\2.写的都是看到的-面向对象编程\继承.js
@@ -30,6 +30,6 @@ var instance = new SubClass();
 console.log(instance.getSubValue()); // false
 console.log(instance.getSuperValue()); // true
 // 测试
-console.log(instance instanceof SuperClass);// true
-console.log(instance instanceof SubClass);// true
-console.log(SubClass instanceof SuperClass);// false
+console.log(instance instanceof SuperClass); // true
+console.log(instance instanceof SubClass); // true
+console.log(SubClass instanceof SuperClass); // false
