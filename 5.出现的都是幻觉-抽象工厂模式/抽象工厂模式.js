@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-21 17:42:00
- * @LastEditTime: 2020-09-21 17:57:14
+ * @LastEditTime: 2020-09-21 18:04:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\5.出现的都是幻觉-抽象工厂模式\抽象工厂模式.js
