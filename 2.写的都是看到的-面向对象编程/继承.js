@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-20 20:43:20
- * @LastEditTime: 2020-09-21 11:15:45
+ * @LastEditTime: 2020-09-21 11:34:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\2.写的都是看到的-面向对象编程\继承.js
@@ -85,11 +85,36 @@ SubClass.prototype.getTime = function () {
 };
 var instance1 = new SubClass("js book", "2014");
 instance1.books.push("设计模式");
-console.log(instance1.books);// [ 'JavaScript', 'Html', 'CSS', '设计模式' ]
-instance1.getName();// js book
-instance1.getTime();// 2014
+console.log(instance1.books); // [ 'JavaScript', 'Html', 'CSS', '设计模式' ]
+instance1.getName(); // js book
+instance1.getTime(); // 2014
 
 var instance2 = new SubClass("css book", "2010");
-console.log(instance2.books);// [ 'JavaScript', 'Html', 'CSS' ]
-instance2.getName();// css book
-instance2.getTime();// 2010
+console.log(instance2.books); // [ 'JavaScript', 'Html', 'CSS' ]
+instance2.getName(); // css book
+instance2.getTime(); // 2010
+
+// 原型式继承
+console.log("原型式继承");
+function inheritObject(o) {
+  function F() {}
+  F.prototype = o;
+  return new F();
+}
+var book = {
+  name: "js book",
+  alikeBook: ["css book", "html book"],
+};
+var newBook = inheritObject(book);
+newBook.name = "ajax book";
+newBook.alikeBook.push("xml book");
+
+var otherBook = inheritObject(book);
+otherBook.name = "flash book";
+otherBook.alikeBook.push("as book");
+console.log(newBook.name); // ajax book
+console.log(newBook.alikeBook); // [ 'css book', 'html book', 'xml book', 'as book' ]
+console.log(otherBook.name); // flash book
+console.log(otherBook.alikeBook); // [ 'css book', 'html book', 'xml book', 'as book' ]
+console.log(book.name); // js book
+console.log(book.alikeBook); // [ 'css book', 'html book', 'xml book', 'as book' ]
