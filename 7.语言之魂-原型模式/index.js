@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-21 20:25:05
- * @LastEditTime: 2020-09-21 20:49:43
+ * @LastEditTime: 2020-09-21 22:03:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\7.语言之魂-原型模式\index.js
