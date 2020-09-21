@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-21 14:50:55
- * @LastEditTime: 2020-09-21 15:39:53
+ * @LastEditTime: 2020-09-21 15:43:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\3.神奇的魔术师-简单工厂模式\index.js
@@ -44,8 +44,11 @@ Tennis.prototype = {
 };
 // 运动工厂
 /**
- *
- * @param {string} name ['NBA', 'wordCup', 'FrenchOpen']
+ * 篮球，足球，网球的工厂函数。
+ * 参数 'NBA' 返回 Basketball 实例
+ * 参数 ‘wordCup' 返回 Football 实例
+ * 参数 'FrenchOpen' 返回 Tennis 实例
+ * @param {string} name 'NBA' | 'wordCup' | 'FrenchOpen'
  *
  */
 var SportsFactory = function (name) {
