@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-20 20:43:20
- * @LastEditTime: 2020-09-21 12:38:03
+ * @LastEditTime: 2020-09-21 13:58:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\2.写的都是看到的-面向对象编程\继承.js
@@ -54,6 +54,9 @@ function SuperClass(id) {
 SuperClass.prototype.showBooks = function () {
   console.log(this.books);
 };
+SuperClass.prototype.getID = function() {
+  console.log(this.id);
+}
 function SubClass(id) {
   SuperClass.call(this, id);
 }
@@ -63,8 +66,9 @@ instance1.books.push("设计模式");
 console.log(instance2.books); // [ 'JavaScript', 'Html', 'CSS' ]
 console.log(instance1.id); // 1
 console.log(instance2.id); // 2
-instance1.showBooks(); // [ 'JavaScript', 'Html', 'CSS', '设计模式' ]
-instance2.showBooks(); // [ 'JavaScript', 'Html', 'CSS' ]
+instance1.getID();// TypeError: instance1.getID is not a function
+instance1.showBooks();// TypeError: instance1.showBooks is not a function
+instance2.showBooks();// TypeError: instance2.showBooks is not a function
 
 // 组合继承
 console.log("组合继承");
@@ -145,3 +149,39 @@ console.log(cbook1.alikeBook);
 cbook2 = createBook(book);
 cbook2.getName();
 console.log(cbook2.alikeBook);
+
+
+// 寄生组合式继承
+console.log('寄生组合式继承');
+function inheritPrototype (SuperClass, SubClass) {
+  var pro = Object.create(SuperClass.prototype);
+  pro.constructor = SubClass;
+  SubClass.prototype = pro;
+}
+function SuperClass(name) {
+  this.name = name;
+  this.colors = ["red", "blue"];
+}
+SuperClass.prototype.getName = function() {
+  console.log(this.name);
+}
+function SubClass(name, age) {
+  this.age = age;
+  SuperClass.call(this, name);
+}
+inheritPrototype(SuperClass, SubClass);
+SubClass.prototype.getAge = function() {
+  console.log(this.age);
+}
+var instance1 = new SubClass("js", 2020);
+var instance2 = new SubClass("ts", 2019);
+console.log(instance1.colors);
+instance1.getName();
+instance1.getAge();
+instance2.getName();
+instance2.getAge()
+instance1.colors.push("green");
+console.log(instance1.colors);
+console.log(instance2.colors);
+console.log(SubClass.prototype instanceof SuperClass);
+console.log(instance1.__proto__ === SubClass.prototype);
