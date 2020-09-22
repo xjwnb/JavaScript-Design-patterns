@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-22 15:41:37
- * @LastEditTime: 2020-09-22 16:23:19
+ * @LastEditTime: 2020-09-22 16:29:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\14.超值午餐-组合模式\index.js
@@ -111,3 +111,5 @@ new1
     )
   )
   .show();
+
+console.log(new1.children);
