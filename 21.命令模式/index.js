@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-09-23 15:45:43
- * @LastEditTime: 2020-09-23 16:21:32
+ * @LastEditTime: 2020-09-23 16:22:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\21.命令模式\index.js
  */
 // 模块实现模块
-var viewCommand = function () {
+var viewCommand = (function () {
   var tpl = {
     // 展示图片结构模板
     product: [
@@ -57,7 +57,7 @@ var viewCommand = function () {
     msg.param = Object.prototype.toString.call(msg.param) === "[object Array]" ? msg.param : [msg.param];
     Action[msg.command].apply(Action, msg.param);
   };
-};
+})();
 
 // 测试
 var productData = [
