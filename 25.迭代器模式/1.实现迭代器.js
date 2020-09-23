@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-09-23 23:38:46
- * @LastEditTime: 2020-09-23 23:45:25
- * @LastEditors: your name
+ * @LastEditTime: 2020-09-24 00:07:26
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\25.迭代器模式\1.实现迭代器.js
  */
@@ -40,6 +40,11 @@ var Iterator = function (items, container) {
         index = length - 1;
         return null;
       }
-    }
+    },
+    // 获取某个元素
+    get: function (num) {
+      index = num >= 0 ? num % length : num % length + length;
+      return items[num];
+    },
   }
 }
