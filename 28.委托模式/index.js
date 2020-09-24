@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-24 13:16:31
- * @LastEditTime: 2020-09-24 13:27:08
+ * @LastEditTime: 2020-09-24 13:28:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript设计模式\28.委托模式\index.js
@@ -25,6 +25,10 @@ ul.onclick = function (e) {
 }
 var g = function (id) {
   return document.getElementById(id);
+};
+g("btn").onclick = function () {
+  g("btn").onclick = null;
+  g("btn_container").innerHTML = "触发事件";
 };
 g("btn_container").onclick = function (e) {
   var target = (e && e.target) || window.event.srcElement;
